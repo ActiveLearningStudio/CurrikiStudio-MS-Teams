@@ -1,0 +1,15 @@
+{
+    "tab": {
+        "appId": "",
+        "appPassword": ""
+    },
+    "port": "3333",
+    "ENV": {
+        "dev": {
+            "PORT": 3050
+        },
+        "prod": {
+            "PORT": 3060
+        }
+    }
+}
