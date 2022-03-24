@@ -1,0 +1,18 @@
+version: "3.7"
+services:
+
+  msteams-app:
+    build:
+      dockerfile: ./Dockerfile
+      context: ./
+    container_name: msteams-app
+    ports:
+      - 3333:3333
+    networks:
+      - msteams-network
+
+
+networks:
+  msteams-network:
+    name: msteams-network
+    driver: bridge
