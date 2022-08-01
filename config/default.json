@@ -1,15 +1,8 @@
 {
     "tab": {
-        "appId": "",
-        "appPassword": ""
+        "appId": "MICROSOFT_APP_ID",
+        "appPassword": "MICROSOFT_APP_PASSWORD",
+        "applicationIdUri": "Application_Id_Uri"
     },
-    "port": "3333",
-    "ENV": {
-        "dev": {
-            "PORT": 3050
-        },
-        "prod": {
-            "PORT": 3060
-        }
-    }
+    "port": "3333"
 }

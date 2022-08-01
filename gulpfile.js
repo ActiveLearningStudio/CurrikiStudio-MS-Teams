@@ -1,7 +1,6 @@
 const gulp = require('gulp');
 const zip = require('gulp-zip');
 const del = require('del');
-const buffer = require('buffer');
 
 gulp.task('clean', function(done) {
     return del([
@@ -10,8 +9,8 @@ gulp.task('clean', function(done) {
 });
 
 gulp.task('generate-manifest', function(done) {
-    gulp.src(['src/static/images/contoso*', 'src/manifest.json'])
-        .pipe(zip('aadSsoTabSample.zip'))
+    gulp.src(['src/images/outline*', 'src/images/color*', 'src/manifest.json'])
+        .pipe(zip('currikiStudio.zip'))
         .pipe(gulp.dest('manifest'), done);
     done();
 });

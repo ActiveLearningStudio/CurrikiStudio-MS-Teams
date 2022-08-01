@@ -1,47 +1,52 @@
 {
-    "$schema": "https://developer.microsoft.com/en-us/json-schemas/teams/v1.5/MicrosoftTeams.schema.json",
-    "manifestVersion": "1.5",
-    "version": "1.0.0",
-    "id": "03ae4b42-c0e2-4e95-8519-e12462464a95",
-    "packageName": "com.contoso.aadSsoSample",
-    "developer": {
-        "name": "Curriki Studio",
-        "websiteUrl": "https://www.microsoft.com",
-        "privacyUrl": "https://www.microsoft.com/privacy",
-        "termsOfUseUrl": "https://www.microsoft.com/termsofuse"
-    },
-    "name": {
-        "short": "Curriki Studio",
-        "full": "Curriki Studio sample app for Microsoft Teams"
-    },
-    "description": {
-        "short": "Auth sample for Microsoft Teams",
-        "full": "This sample app provides a very simple app for Microsoft Teams which illustrates how single sign-on (SSO) should work for tabs."
-    },
-    "icons": {
-        "outline": "CurrikiLogo.png",
-        "color": "CurrikiLogo.png"
-    },
-    "accentColor": "#60A18E",
-    "staticTabs": [{
-        "entityId": "com.curriki.static",
-        "name": "Curriki Tab",
-        "contentUrl": "https://a092-2405-201-e005-60-ec27-8ad5-a581-d748.ngrok.io/ssoDemo",
-        "scopes": [
-            "personal"
-        ]
-    }],
-    "configurableTabs": [{
-        "configurationUrl": "https://a092-2405-201-e005-60-ec27-8ad5-a581-d748.ngrok.io/configure",
-        "canUpdateConfiguration": true,
-        "scopes": [
-            "team"
-        ]
-    }],
-    "permissions": [],
-    "validDomains": [],
-    "webApplicationInfo": {
-        "id": "867338cd-b23b-4ddc-9035-577ed4cd8fbe",
-        "resource": "api://a092-2405-201-e005-60-ec27-8ad5-a581-d748.ngrok.io/867338cd-b23b-4ddc-9035-577ed4cd8fbe"
-    }
-}
+  "$schema": "https://developer.microsoft.com/json-schemas/teams/v1.11/MicrosoftTeams.schema.json",
+  "manifestVersion": "1.11",
+   "version": "1.0.0",
+   "id": "{new GUID for this Teams app - not the Azure AD App ID}",
+   "packageName": "com.contoso.teamsauthsso",
+   "developer": {
+     "name": "Microsoft",
+     "websiteUrl": "https://www.microsoft.com",
+     "privacyUrl": "https://www.microsoft.com/privacy",
+     "termsOfUseUrl": "https://www.microsoft.com/termsofuse"
+   },
+   "name": {
+     "short": "Curriki Studio",
+     "full": "Curriki Studio sample app for Microsoft Teams"
+ },
+   "description": {
+     "short": "Curriki Studio SSO app",
+     "full": "This Curriki Studio sso authentication for tab."
+   },
+   "icons": {
+     "outline": "CurrikiLogo.png",
+     "color": "CurrikiLogo.png"
+ },
+   "accentColor": "#60A18E",
+   "staticTabs": [
+     {
+       "entityId": "com.curriki.static",
+       "name": "Curriki Tab",
+       "contentUrl": "https://{ngrokSubdomain}.ngrok.io/ssoDemo",
+       "scopes": [ "personal" ]
+     }
+   ],
+   "configurableTabs": [
+     {
+       "configurationUrl": "https://{ngrokSubdomain}.ngrok.io/configure",
+       "canUpdateConfiguration": true,
+       "scopes": [
+         "team"
+       ]
+     }
+   ],
+   "permissions": [ "identity", "messageTeamMembers" ],
+   "validDomains": [
+     "{ngrokSubdomain}.ngrok.io"
+   ],
+   "webApplicationInfo": {
+     "id": "{appId}",
+     "resource": "api://{ngrokSubdomain}.ngrok.io/{appId}"
+   }
+ }
+ 
