@@ -94,29 +94,24 @@ class MsalAuthService {
                     beforeSend: function (request) {
                         request.setRequestHeader("Authorization", `Bearer ${token}`);
                     },
-                    success: function (profile) {
-                        let profileDiv = $("#divGraphProfile");
-                        profileDiv.empty();
-                        
-                        $("<div>")
-                            .append($("<h2>").text(`Welcome ${profile["displayName"]},`))
-                            .append($("<h3>").text(`Here is your profile details:`))
-                            .appendTo(profileDiv);
+                    success: function (jsonParse) {
 
-                        for (let key in profile) {
-                            if ((key[0] !== "@") && profile[key]) {
-                                $("<div>")
-                                    .append($("<span>").text(key + ": "))
-                                    .append($("<span>").text(profile[key]))
-                                    .appendTo(profileDiv);
-                            }
-                        }
+                        // var jsonParse = JSON.parse(jsonResult);
+                        var email = jsonParse['mail'];
+                        //var email = 'uday@flyerssoft.com'
+                        var first_name = jsonParse['givenName'];
+                        //var first_name = 'Leo'
+                        var last_name = jsonParse['surname'];
+                        //var last_name = 'Kanth'
+                        var lti_client_id = '7db24d1d-9dcb-4084-94bd-96ec6775bb25';
+                        var tool_platform = 'msteams';
+                        var tempGuid = 'b3c6-2405-201-e005-35-7008-5011-939f-9977';
 
-                        $("<div>")
-                            .append($("<button class=\"browser-button\" onclick=\"logout()\">").text(`Logout`))
-                            .appendTo(profileDiv);
-
-                        $("#divGraphProfile").show();
+                        var plainQueryString = 'email='+ email + '&first_name='+ first_name +  '&last_name='+ last_name + '&lti_client_id='+ lti_client_id +  '&tool_platform='+ tool_platform  +  '&guid='+ tempGuid
+                        //display(plainQueryString);
+                        var base64EncodedString = btoa(plainQueryString);
+                        //display(base64EncodedString);
+                        window.location='https://dev.currikistudio.org/canvas-lti-sso?sso_info='+ base64EncodedString;
                     },
                     error: function (error) {
                         console.log("Failed");
