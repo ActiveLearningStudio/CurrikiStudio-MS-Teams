@@ -98,12 +98,12 @@ class MsalAuthService {
 
                         // var jsonParse = JSON.parse(jsonResult);
                         var email = jsonParse['mail'];
-                        //var email = 'uday@flyerssoft.com'
+                        //var email = 'abc@example.com'
                         var first_name = jsonParse['givenName'];
-                        //var first_name = 'Leo'
+                        //var first_name = 'abc'
                         var last_name = jsonParse['surname'];
-                        //var last_name = 'Kanth'
-                        var lti_client_id = '7db24d1d-9dcb-4084-94bd-96ec6775bb25';
+                        //var last_name = 'cde'
+                        var lti_client_id = '48014f34-d3d3-495a-b9bc-a694f2fe191d';
                         var tool_platform = 'msteams';
                         var tempGuid = 'b3c6-2405-201-e005-35-7008-5011-939f-9977';
 
