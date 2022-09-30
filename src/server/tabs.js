@@ -26,7 +26,10 @@ module.exports.setup = function (app) {
   // ------------------
   // SSO demo page
   app.get('/ssodemo', function (req, res) {
-    res.render('ssoDemo');
+    // res.render('ssoDemo');
+    var clientId = config.get("tab.appId");
+    var applicationIdUri = config.get("tab.applicationIdUri");
+    res.render('hello', { clientId: clientId, applicationIdUri: applicationIdUri });
   });
 
   // Pop-up dialog to ask for additional permissions, redirects to AAD page
