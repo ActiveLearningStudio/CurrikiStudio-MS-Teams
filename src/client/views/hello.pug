@@ -61,13 +61,16 @@ block content
         document.getElementById("browser-login").hidden = isUserSignedIn;
     }
 
+
+  div(id="browser-signin-container")
   header(class="header_logo")
     img(src="./images/currikistudio_logo.svg" alt="logo" class="img_one")
   div(class="wlcm_bx")
     div(class="wlcm_content")
       img(src="./images/left_integration_logo.svg" alt="left image" class="content_left")
-      div(class="right_content")
+      div(class="right_content" id="browser-login")
           p(class="wlcm_para") Connecting Microsoft Teams - CurrikiStudio app...
           h2(class="wlcm_heading") Welcome to Curriki
           p(class="inner_para") Please click on Log In button to see your profile details!
-          button(class="wlcm_btn" onclick="login()") Log In
+          button(class="wlcm_btn" onclick="login()") Login
+      div(id="divGraphProfile" style="display:none;")
