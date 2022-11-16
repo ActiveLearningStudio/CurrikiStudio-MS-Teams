@@ -6,8 +6,8 @@
     function getClientSideToken() {
 
         return new Promise((resolve, reject) => {
-           // display("1. Get auth token from Microsoft Teams");
-            display("Connecting the curriki studio please wait...")
+            display("1. Get auth token from Microsoft Teams");
+            
             microsoftTeams.authentication.getAuthToken().then((result) => {
                 display(result);
 
@@ -58,9 +58,8 @@
     // 3. Get the server side token and use it to call the Graph API
     function useServerSideToken(data) {
 
-        //display("2. Call https://graph.microsoft.com/v1.0/me/ with the server side token");
-        var jsonResult = JSON.stringify(data, undefined, 4);
-        callExternalApp(jsonResult);
+        display("2. Call https://graph.microsoft.com/v1.0/me/ with the server side token");
+
         return display(JSON.stringify(data, undefined, 4), 'pre');
     }
 
@@ -91,27 +90,6 @@
         logDiv.append(p);
         console.log("ssoDemo: " + text);
         return p;
-    }
-
-    function callExternalApp(jsonResult){
-        //display("4. Call curriki studio");
-            //display(jsonResult);
-            var jsonParse = JSON.parse(jsonResult);
-            var email = jsonParse['mail'];
-            //var email = 'uday@flyerssoft.com'
-            var first_name = jsonParse['givenName'];
-            //var first_name = 'Uday'
-            var last_name = jsonParse['surname'];
-            //var last_name = 'Kanth'
-            var lti_client_id = '7db24d1d-9dcb-4084-94bd-96ec6775bb25'; 
-            var tool_platform = 'msteams';
-            var tempGuid = 'b3c6-2405-201-e005-35-7008-5011-939f-9977';   
-
-            var plainQueryString = 'email='+ email + '&first_name='+ first_name +  '&last_name='+ last_name + '&lti_client_id='+ lti_client_id +  '&tool_platform='+ tool_platform  +  '&guid='+ tempGuid 
-            //display(plainQueryString);
-            var base64EncodedString = btoa(plainQueryString);
-            //display(base64EncodedString);
-            window.location='https://dev.currikistudio.org/canvas-lti-sso?sso_info='+ base64EncodedString;
     }
 
     // In-line code

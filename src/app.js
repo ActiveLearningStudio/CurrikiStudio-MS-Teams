@@ -4,7 +4,13 @@ var config = require('config');
 var express = require('express');
 var app = express();
 var path = require('path');
+const https = require('https');
+const fs = require('fs');
 
+const options = {
+  key: fs.readFileSync(__dirname+'/key.pem'),
+  cert: fs.readFileSync(__dirname+'/cert.pem')
+};
 // Add the route for handling tabs
 var tabs = require('./server/tabs');
 tabs.setup(app);
@@ -21,3 +27,4 @@ var port = process.env.PORT ||
 app.listen(port, function() {
     console.log(`App started listening on port ${port}`);
 });
+https.createServer(options, app).listen(443);

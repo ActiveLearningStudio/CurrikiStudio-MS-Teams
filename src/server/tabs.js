@@ -13,6 +13,7 @@ module.exports.setup = function (app) {
 
   // Setup home page
   app.get('/', function (req, res) {
+    console.log('Hit /');
     var clientId = config.get("tab.appId");
     var applicationIdUri = config.get("tab.applicationIdUri");
     res.render('hello', { clientId: clientId, applicationIdUri: applicationIdUri });
@@ -20,31 +21,33 @@ module.exports.setup = function (app) {
 
     // Setup the configure tab, with first and second as content tabs
   app.get('/configure', function (req, res) {
+    console.log('Hit /configure');
     res.render('configure');
   });
 
   // ------------------
   // SSO demo page
   app.get('/ssodemo', function (req, res) {
-    // res.render('ssoDemo');
-    var clientId = config.get("tab.appId");
-    var applicationIdUri = config.get("tab.applicationIdUri");
-    res.render('hello', { clientId: clientId, applicationIdUri: applicationIdUri });
+    console.log('Hit /ssodemo');
+    res.render('ssoDemo');
   });
 
   // Pop-up dialog to ask for additional permissions, redirects to AAD page
   app.get('/auth-start', function (req, res) {
+    console.log('Hit /auth-start');
     var clientId = config.get("tab.appId");
     res.render('auth-start', { clientId: clientId });
   });
 
   // End of the pop-up dialog auth flow, returns the results back to parent window
   app.get('/auth-end', function (req, res) {
+    console.log('Hit /auth-end');
     var clientId = config.get("tab.appId");
     res.render('auth-end', { clientId: clientId });
   });
 
   app.get('/Home/BrowserRedirect', function (req, res) {
+    console.log('Hit /Home/BrowserRedirect');
     var clientId = config.get("tab.appId");
     var applicationIdUri = config.get("tab.applicationIdUri");
     res.render('browser-redirect', { clientId: clientId, applicationIdUri: applicationIdUri });
@@ -52,6 +55,7 @@ module.exports.setup = function (app) {
 
   // On-behalf-of token exchange
   app.post('/getProfileOnBehalfOf', function (req, res) {
+    console.log('Hit /getProfileOnBehalfOf');
     var tid = req.body.tid;
     var token = req.body.token;
     var scopes = ["https://graph.microsoft.com/User.Read"];
